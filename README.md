@@ -1,11 +1,11 @@
 # dive-book
 
 modern dive log book, this website designed for divers, 
-in this website you will can write detailts about your dives, detailts like : 
+in this website you will can write details about your dives, details like : 
 * location
 * data
-* teamprture 
-* time ,
+* temperature
+* time
 * water
 * the type of gas 
 * and more
