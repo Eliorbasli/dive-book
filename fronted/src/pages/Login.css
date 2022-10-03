@@ -1,0 +1,8 @@
+.login__bg {
+  background-image: url(https://www.planetdiveholidays.com/blog/wp-content/uploads/sites/3/2012/01/diver_and_dolphin.jpg);
+  height: 78vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}

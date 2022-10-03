@@ -4,6 +4,7 @@ const dotenv = require(`dotenv`);
 const app = express();
 const diveRoute = require("./routes/dive");
 const userRoute = require("./routes/user");
+const cors = require("cors");
 
 dotenv.config();
 
