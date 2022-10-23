@@ -62,13 +62,11 @@ function Signup() {
       name: name,
       email: email,
       password: password,
-      //image:  ,
+      image: url,
     };
     try {
       console.log("axios start");
-      await axios
-        .post("http://localhost:5000/api/user/register", newUser)
-        .then(console.log("worked"));
+      await axios.post("/user/register", newUser).then(console.log("worked"));
       setSuccess(true);
     } catch (error) {
       setError(true);

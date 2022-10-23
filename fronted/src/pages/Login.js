@@ -1,15 +1,38 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
     //login
+    console.log("login function");
+    const loginUser = {
+      name: name,
+      password: password,
+    };
+    console.log(loginUser);
+    try {
+      const res = await axios
+        .post("/user/login", loginUser)
+        .then(console.log("login worked"));
+      console.log(res);
+      if (res.status === 200) {
+        localStorage.setItem("authenticated", true);
+        localStorage.setItem("username", loginUser.name);
+        window.location.href = "/logbook";
+      }
+      //setSuccess(true);
+    } catch (error) {
+      localStorage.setItem("authenticated", false);
+      //setError(true);
+    }
   }
 
   return (
@@ -23,16 +46,16 @@ function Login() {
           <Form style={{ width: "80%", maxWidth: 500 }} onSubmit={handleLogin}>
             {/* d-flex align-items-center justify-content-center flex-direction-column */}
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>UserName</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                type="text"
+                placeholder="Enter username"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
                 required
               />
               <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
+                We'll never share your username with anyone else.
               </Form.Text>
             </Form.Group>
 

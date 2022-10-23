@@ -6,6 +6,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
+import Logbook from "./pages/logbook";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 <link
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/logbook" element={<Logbook />} />
         </Routes>
       </BrowserRouter>
       {/* <Map
