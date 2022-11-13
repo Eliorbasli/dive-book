@@ -13,16 +13,16 @@ in this website you will can write details about your dives, details like :
 ** Build
 strps to build a Docker image
   1. Clone this repo
-     > git clone URL
+     > git clone URL https://github.com/Eliorbasli/dive-book.git < 
   2. open 2 terminals.
     from first move to backend directory 
-     > cd ./backend
+     > cd ./backend < 
     from secend move to forntnd directory
-     > cd ./fronted
+     > cd ./fronted < 
     3. build in back folder with command : 
-        > docker build -t my-express-app .
+        > docker build -t my-express-app . < 
        build in frontend folder with command: 
-        > docker build -t react-image .
+        > docker build -t react-image . < 
        
     4. run this command in backend folder: 
         > docker run --name express-container --rm -p 5000:5000 my-express-app
