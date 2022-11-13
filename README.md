@@ -25,7 +25,7 @@ strps to build a Docker image
         `docker build -t react-image .`<br />
     4. run this command in backend folder:<br />
         `docker run --name express-container --rm -p 5000:5000 my-express-app`<br />
-       run this command in fronted folder<br/ >
+       run this command in fronted folder< br/>
         `docker run --name express-container --rm -p 3000:3000 my-express-app`<br />
     5. Once everythong has started, you should be able to access the webapp via http://localhost:3000 on your host machine<br />
         
