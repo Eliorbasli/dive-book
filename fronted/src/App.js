@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Map, Marker } from "react-map-gl";
+// import { Map, Marker } from "react-map-gl";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import "./App.css";
@@ -9,13 +9,15 @@ import Signup from "./pages/Signup";
 import Logbook from "./pages/logbook";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-<link
+{
+  /* <link
   href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
   rel="stylesheet"
-/>;
+/>; */
+}
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoiZWxpb3JiYXNsaSIsImEiOiJjbDhyZmF4ZWszM2gxM3dvNXhwMHBkb3I5In0.DYkNUjB26u1E1iFZ15DdQg"; // Set your mapbox token here
+// const MAPBOX_TOKEN =
+//   "pk.eyJ1IjoiZWxpb3JiYXNsaSIsImEiOiJjbDhyZmF4ZWszM2gxM3dvNXhwMHBkb3I5In0.DYkNUjB26u1E1iFZ15DdQg"; // Set your mapbox token here
 
 function App() {
   return (

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { Link, Navigate } from "react-router-dom";
+// import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 

@@ -8,7 +8,7 @@ import axios from "axios";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
 
   //image upload states
   const [image, setImage] = useState(null);
@@ -59,7 +59,7 @@ function Signup() {
     console.log(url);
     //signup the user
     const newUser = {
-      name: name,
+      username: username,
       email: email,
       password: password,
       image: url,
@@ -104,7 +104,7 @@ function Signup() {
                 type="text"
                 placeholder=" Your name"
                 onChange={(e) => setName(e.target.value)}
-                value={name}
+                value={username}
               />
             </Form.Group>
 

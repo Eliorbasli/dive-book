@@ -16,15 +16,21 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
       picture: req.body.picture,
     });
+    console.log(req.body.username);
+    console.log(req.body.email);
+    console.log(req.body.password);
+    console.log(req.body.picture);
     //console.log(newUser);
     //save user and send response
     console.log("------------->heyyyyyyyyyyyyyyy");
     const user = await newUser.save();
+    console.log("------------->heyyyyyyyyyyyyyyy2");
+    console.log(user);
     console.log(user);
     res.status(200).json(user._id);
   } catch (error) {
     console.log("from error..");
-    //console.log(error);
+    console.log(error);
     let msg;
     if (error.code == 11000) {
       msg = "User alredy exists";
