@@ -23,6 +23,7 @@ strps to build a Docker image
         > docker build -t my-express-app .  
        build in frontend folder with command: 
         > docker build -t react-image .
+        
     4. run this command in backend folder: 
         > docker run --name express-container --rm -p 5000:5000 my-express-app
        run this command in fronted folder
