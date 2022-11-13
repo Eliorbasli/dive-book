@@ -13,25 +13,24 @@ in this website you will can write details about your dives, details like :
 ** Build
 strps to build a Docker image
   1. Clone this repo
-     `git clone URL https://github.com/Eliorbasli/dive-book.git` 
-     <br/ >
-  2. open 2 terminals.<br/ >
+     `git clone URL https://github.com/Eliorbasli/dive-book.git`<br />
+  2. open 2 terminals.<br />
     from first move to backend directory <br/ >
      `cd ./backend` 
-    from secend move to forntnd directory <br/ >
+    from secend move to forntnd directory <br />
      `cd ./fronted` <br/ >
-    3. build in back folder with command : <br/ >
-        `docker build -t my-express-app .`  <br/ >
-       build in frontend folder with command: <br/ >
-        `docker build -t react-image .` <br/ >
-    4. run this command in backend folder: <br/ >
-        `docker run --name express-container --rm -p 5000:5000 my-express-app` <br/ >
+    3. build in back folder with command : <br />
+        `docker build -t my-express-app .`  <br />
+       build in frontend folder with command: <br />
+        `docker build -t react-image .` <br />
+    4. run this command in backend folder: <br />
+        `docker run --name express-container --rm -p 5000:5000 my-express-app` <br />
        run this command in fronted folder <br/ >
-        `docker run --name express-container --rm -p 3000:3000 my-express-app` <br/ >
-    5. Once everythong has started, you should be able to access the webapp via http://localhost:3000 on your host machine <br/ >
+        `docker run --name express-container --rm -p 3000:3000 my-express-app` <br />
+    5. Once everythong has started, you should be able to access the webapp via http://localhost:3000 on your host machine <br />
         
-<br/ >
-<br/ >
+<br />
+<br />
 dive log book website available from any where
 
 main page: 
