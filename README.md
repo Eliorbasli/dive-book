@@ -41,7 +41,8 @@ register page :
 ![Capture12](https://user-images.githubusercontent.com/45131527/197389754-52ddf41b-49f1-4016-a0c6-3ddf9e26eb36.PNG)
 
 new dive page: 
-![Uploading image.png…]()
+
+![image](https://user-images.githubusercontent.com/45131527/201680115-d9909633-2f57-423a-a6a1-405ea08de3df.png)
 
 
 
