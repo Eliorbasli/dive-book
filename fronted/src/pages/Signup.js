@@ -68,6 +68,7 @@ function Signup() {
       console.log("axios start");
       await axios.post("/user/register", newUser).then(console.log("worked"));
       setSuccess(true);
+      window.location.href = "http://localhost:3000/login";
     } catch (error) {
       setError(true);
     }

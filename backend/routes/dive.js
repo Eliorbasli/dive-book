@@ -16,6 +16,7 @@ router.post("/", async (req, res) => {
 // get all DiveLog
 router.get("/", async (req, res) => {
   try {
+    // const logs = await User.findOne({ username: req.body.name });
     const logs = await Dive.find();
     res.status(200).json(logs);
   } catch (error) {

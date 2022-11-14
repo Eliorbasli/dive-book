@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, Container, Button } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import NavDropdown from "react-bootstrap/NavDropdown";
@@ -22,7 +22,10 @@ function Navigations() {
               <Nav.Link>Login</Nav.Link>
             </LinkContainer>
             <LinkContainer to={"/logbook"}>
-              <Nav.Link>LogBook</Nav.Link>
+              <Nav.Link>New Dive</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to={"/history"}>
+              <Nav.Link>My Dives</Nav.Link>
             </LinkContainer>
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
