@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-// import { Link, Navigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
 
 function Login() {
-  // const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [error, setError] = useState(false);
 
+  //login function
   async function handleLogin(e) {
     e.preventDefault();
-    //login
-    console.log("login function");
     const loginUser = {
       name: name,
       password: password,
     };
-    console.log(loginUser);
     try {
       const res = await axios
         .post("/user/login", loginUser)
@@ -27,12 +25,13 @@ function Login() {
       if (res.status === 200) {
         localStorage.setItem("authenticated", true);
         localStorage.setItem("username", loginUser.name);
-        window.location.href = "/logbook";
+        //localStorage.image("userImage", loginUser.userimage);
+        //console.log(loginUser.userimage);
+        navigate("/logbook");
       }
-      //setSuccess(true);
     } catch (error) {
       localStorage.setItem("authenticated", false);
-      //setError(true);
+      setError(true);
     }
   }
 
@@ -55,9 +54,6 @@ function Login() {
                 value={name}
                 required
               />
-              <Form.Text className="text-muted">
-                We'll never share your username with anyone else.
-              </Form.Text>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -70,7 +66,14 @@ function Login() {
                 required
               />
             </Form.Group>
-
+            {error && (
+              <>
+                <Form.Text className="text-muted error1">
+                  Wrong user or password
+                </Form.Text>
+                <br />
+              </>
+            )}
             <Button variant="primary" type="submit">
               Login
             </Button>

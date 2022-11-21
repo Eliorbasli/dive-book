@@ -10,25 +10,22 @@ import Logbook from "./pages/Logbook";
 import History from "./pages/History";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-{
-  /* <link
-  href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
-  rel="stylesheet"
-/>; */
-}
-
-// const MAPBOX_TOKEN =
-//   "pk.eyJ1IjoiZWxpb3JiYXNsaSIsImEiOiJjbDhyZmF4ZWszM2gxM3dvNXhwMHBkb3I5In0.DYkNUjB26u1E1iFZ15DdQg"; // Set your mapbox token here
-
 function App() {
+  const user = localStorage.getItem("authenticated");
+  console.log(user);
   return (
     <div className="App">
       <BrowserRouter>
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* if user is false show login and signup */}
+          {user && (
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </>
+          )}
           <Route path="/logbook" element={<Logbook />} />
           <Route path="/history" element={<History />} />
         </Routes>
