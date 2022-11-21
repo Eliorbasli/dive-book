@@ -42,7 +42,12 @@ register page :
 
 new dive page: 
 
-![image](https://user-images.githubusercontent.com/45131527/201680115-d9909633-2f57-423a-a6a1-405ea08de3df.png)
+![image](https://user-images.githubusercontent.com/45131527/203161165-7252ecf1-4e21-4e20-b74d-b4a627316d2f.png)
+
+dive history page:
+![image](https://user-images.githubusercontent.com/45131527/203161442-be6d73d2-e51d-4db3-bc7a-feae180912bf.png)
+
+
 
 
 
