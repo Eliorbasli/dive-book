@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import botImg from "../assests/botImage.png";
 import axios from "axios";
@@ -9,14 +9,15 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setName] = useState("");
+  const navigate = useNavigate();
 
   //image upload states
   const [image, setImage] = useState(null);
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  //const [success, setSuccess] = useState(false);
+  //const [error, setError] = useState(false);
 
   function validateImg(e) {
     const file = e.target.files[0];
@@ -67,10 +68,10 @@ function Signup() {
     try {
       console.log("axios start");
       await axios.post("/user/register", newUser).then(console.log("worked"));
-      setSuccess(true);
-      window.location.href = "http://localhost:3000/login";
+      //setSuccess(true);
+      navigate("/login");
     } catch (error) {
-      setError(true);
+      //setError(true);
     }
   }
   return (

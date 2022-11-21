@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-// import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "./Logbook.css";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
-
-// import { Link } from "react-router-dom";
 
 function Logbook() {
   const [date, setDate] = useState("");
@@ -15,17 +12,21 @@ function Logbook() {
   const [maxDeep, setMaxDeep] = useState("");
   const [gasStart, setgasStart] = useState("");
   const [gasEnd, setGasEnd] = useState("");
+  const [typeWater, setTypeWater] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     const newDive = {
       username: localStorage.username,
       location: location,
+      diveLength: diveLength,
+      date: date,
       temperature: waterTemperature,
       gasStart: gasStart,
       gasEnd: gasEnd,
       diveTime: time,
       maxDepth: maxDeep,
+      typeWater: typeWater,
     };
     try {
       await axios.post("/dive", newDive).then(console.log("created new dive"));
@@ -56,18 +57,22 @@ function Logbook() {
             <form className="data__form" onSubmit={handleSubmit}>
               <label>Date</label>
               <input
-                type="text"
-                placeholder="Enter date"
+                required
+                type="date"
                 onChange={(e) => setDate(e.target.value)}
               />
               <label>Time</label>
               <input
-                type="text"
+                required
+                type="time"
                 placeholder="Enter time"
-                onChange={(e) => setTime(e.target.value)}
+                onChange={(e) => {
+                  setTime(e.target.value);
+                }}
               />
               <label>Location</label>
               <input
+                required
                 type="text"
                 placeholder="Enter location"
                 onChange={(e) => setLocation(e.target.value)}
@@ -75,6 +80,7 @@ function Logbook() {
 
               <label>Dive length</label>
               <input
+                required
                 type="text"
                 placeholder="Enter dive length"
                 onChange={(e) => setDiveLengeth(e.target.value)}
@@ -82,6 +88,7 @@ function Logbook() {
 
               <label>Water temperature</label>
               <input
+                required
                 type="text"
                 placeholder="Enter water temperature"
                 onChange={(e) => setwaterTemperature(e.target.value)}
@@ -89,6 +96,7 @@ function Logbook() {
 
               <label>Max deep</label>
               <input
+                required
                 type="text"
                 placeholder="Enter max deep"
                 onChange={(e) => setMaxDeep(e.target.value)}
@@ -96,6 +104,7 @@ function Logbook() {
 
               <label>Initial amount of gas</label>
               <input
+                required
                 type="text"
                 placeholder="Enter amount of gas"
                 onChange={(e) => setgasStart(e.target.value)}
@@ -103,12 +112,24 @@ function Logbook() {
 
               <label>Amount of gas at the end</label>
               <input
+                required
                 type="text"
                 placeholder="Enter amount of gas"
                 onChange={(e) => setGasEnd(e.target.value)}
               />
 
-              <button class="btn submit">Submit &rarr;</button>
+              <label>Water type</label>
+              <select
+                name="waterType"
+                onChange={(e) => setTypeWater(e.target.value)}
+              >
+                <option value="fresh">Fresh</option>
+                <option value="salt">Salt</option>
+                <option value="tide">Tide</option>
+                <option value="current">Current</option>
+              </select>
+
+              <button class="submitBtn">Submit &rarr;</button>
             </form>
           </div>
         </Col>

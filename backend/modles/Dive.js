@@ -11,6 +11,9 @@ const DiveSchema = new mongoose.Schema(
       require: true,
       min: 3,
     },
+    date: {
+      type: String,
+    },
     temperature: {
       type: Number,
     },
@@ -22,6 +25,9 @@ const DiveSchema = new mongoose.Schema(
       min: 0,
     },
     diveTime: {
+      type: String,
+    },
+    diveLength: {
       type: Number,
     },
     maxDepth: {

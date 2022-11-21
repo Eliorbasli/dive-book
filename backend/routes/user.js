@@ -6,32 +6,25 @@ const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
   try {
-    //generate new password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    //create new username
+
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
       picture: req.body.picture,
     });
-    console.log(req.body.username);
-    console.log(req.body.email);
-    console.log(req.body.password);
-    console.log(req.body.picture);
-    //console.log(newUser);
+
     //save user and send response
-    console.log("------------->heyyyyyyyyyyyyyyy");
     const user = await newUser.save();
-    console.log("------------->heyyyyyyyyyyyyyyy2");
+
     console.log(user);
-    console.log(user);
+
     res.status(200).json(user._id);
   } catch (error) {
     console.log("from error..");
-    console.log(error);
-    let msg;
+    console.log(error.code);
     if (error.code == 11000) {
       msg = "User alredy exists";
     } else {
@@ -47,9 +40,12 @@ router.post("/login", async (req, res) => {
   try {
     //find user
     const user = await User.findOne({ username: req.body.name });
-    console.log(user);
+    console.log("login api");
     if (!user) {
-      res.status(400).json("Wrong username or password");
+      console.log("Wrong username or password");
+      return res.status(400).json("Wrong username or password");
+    } else {
+      console.log(user);
     }
     //validate password
     const validPassword = await bcrypt.compare(
@@ -58,10 +54,15 @@ router.post("/login", async (req, res) => {
     );
     if (!validPassword) {
       res.status(400).json("Wrong username or password!");
+    } else {
+      res.status(200).json({
+        _id: user.id,
+        username: user.username,
+        userimage: user.picture,
+      });
     }
 
     //sent res
-    res.status(200).json({ _id: user.id, username: user.username });
 
     // save username in localStorage
 

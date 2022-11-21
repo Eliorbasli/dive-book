@@ -2,21 +2,22 @@
   --color-primary: #0072e3;
   --color-secondary: #218efb;
   --color: #ec5fff;
+
   --gradient-primary: linear-gradient(to top left, #51bcff, #0151ff);
 }
 
 .logbook__bg {
   background-image: url("./../assests/dive.jpeg");
   height: 78vh;
-  background-position: center;
-  background-size: cover;
+  /* background-position: center; */
+  /* background-size: cover; */
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
 
 .data,
 .hello {
-  position: absolute;
+  /* position: absolute; */
   max-width: 100%;
   padding: 0 3%;
   transition: all 0.5s;
@@ -25,7 +26,7 @@
 .data__header,
 .hello__header {
   font-size: 200%;
-  margin-bottom: 10%;
+  margin-bottom: 7%;
   line-height: 1.5;
 }
 
@@ -87,4 +88,24 @@
   padding-left: 4%;
   padding-bottom: 1%;
   margin: 0%;
+}
+
+.submitBtn,
+.login {
+  display: inline-block;
+  background-color: var(--color-primary);
+  font-size: 150%;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 8px 15px;
+  margin-bottom: 10%;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+}
+
+.submitBtn:hover {
+  background-color: rgb(117, 175, 250);
 }

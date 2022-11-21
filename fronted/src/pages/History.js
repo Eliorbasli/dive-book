@@ -1,30 +1,41 @@
-import React from "react";
-// import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import "./history.css";
-//import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { Container, Row, Col } from "react-bootstrap";
+import Log from "./../components/Log";
 
-// import { Link } from "react-router-dom";
+function History() {
+  const [Logs, setLogs] = useState([]);
 
-function logbook() {
-  async function handleGetLogs(e) {
-    e.preventDefault();
+  const username = localStorage.getItem("username");
+
+  const getLogs = async () => {
     try {
-      const result = await axios
-        .get("/dive")
-        .then(console.log("created new dive"));
-      console.log(result.data);
-      return result;
-    } catch (error) {
-      console.log(error);
+      console.log(username);
+      const res = await axios.post("/dive/getById", { username });
+
+      setLogs(res.data);
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
+  useEffect(() => {
+    getLogs();
+  }, []);
 
   return (
-    <div on onClick={handleGetLogs}>
-      hello world
-    </div>
+    <Container>
+      <Row>
+        <Col md={8}>
+          <h1>your dive</h1>
+          {Logs.map((p) => (
+            <Log dive={p} />
+          ))}
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   );
 }
 
-export default logbook;
+export default History;

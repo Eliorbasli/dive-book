@@ -1,0 +1,41 @@
+.card1 {
+  position: relative;
+  /* background-color: rgb(130, 200, 248); */
+  background-image: linear-gradient(rgb(209, 207, 207), rgb(228, 228, 228));
+  width: 95%;
+  min-height: 20%;
+
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  margin: 15px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 15px lightblue;
+}
+
+.date {
+  color: rgb(0, 0, 0);
+  font-style: normal;
+  font-weight: bold;
+  font: 25px Arial;
+  font-size: 180%;
+  font-weight: 500;
+}
+
+.location {
+  margin-left: 10px;
+  font-style: normal;
+  font-weight: bold;
+  /* font: 25px Arial; */
+  color: rgb(0, 0, 0);
+  font-size: 180%;
+  font-weight: 500;
+}
+
+.temperature {
+  color: rgb(0, 0, 0);
+}
+
+.label {
+  font-size: 120%;
+  font-weight: 500;
+}
