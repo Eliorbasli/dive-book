@@ -1,0 +1,9 @@
+.rdp {
+  background-image: url(https://content.instructables.com/F3E/ERWV/077EP281UWG/F3EERWV077EP281UWG.jpg?auto=webp&fit=bounds&frame=1);
+  height: 78vh;
+  width: 90%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}

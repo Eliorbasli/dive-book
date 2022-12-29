@@ -20,7 +20,7 @@ function Home() {
           </LinkContainer>
         </div>
       </Col>
-      <Col md={6} className="home__bg"></Col>
+      <Col md={5} className="home__bg"></Col>
     </Row>
   );
 }

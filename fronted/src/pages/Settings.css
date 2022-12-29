@@ -1,0 +1,19 @@
+body {
+  background-color: aquamarine;
+  width: 100%;
+}
+
+.settings__bg {
+  background-image: url(https://cdn.canadianmetalworking.com/a/diving-into-underwater-welding-and-burning-1563372632.jpg);
+  height: 78vh;
+  /* width: 90%; */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}

@@ -13,6 +13,7 @@ function History() {
     try {
       console.log(username);
       const res = await axios.post("/dive/getById", { username });
+      console.log(res.data);
 
       setLogs(res.data);
     } catch (err) {
