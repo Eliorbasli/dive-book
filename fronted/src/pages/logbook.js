@@ -1,14 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Logbook.css";
 import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { useParams } from "react-router";
+
+// const initialState = {
+//   date: "",
+//   time: "",
+//   location: "",
+//   diveLength: "",
+//   waterTemperature: "",
+//   maxDeep: "",
+//   gasStart: "",
+//   gasEnd: "",
+//   typeWater: "",
+// };
 
 function Logbook() {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [location, setLocation] = useState("");
-  const [diveLength, setDiveLengeth] = useState("");
-  const [waterTemperature, setwaterTemperature] = useState("");
+  const { id } = useParams();
+
+  //////////////////////////////////
+
+  const [Log, setLog] = useState([]);
+
+  const getLog = async () => {
+    try {
+      const res = await axios.get("/dive/" + id);
+      // console.log(res.data);
+      setLog(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getLog();
+  }, []);
+
+  // const options = {
+  //   // weekday: "long",
+  //   year: "numeric",
+  //   month: "numeric",
+  //   day: "numeric",
+  // };
+  // var date1 = new Date(Log.date);
+  // var date2 = new Date("11-4-2022");
+  // console.log(date1);
+  // const date3 = date2.toLocaleDateString("en-us", options);
+  // console.log(date3);
+  // console.log(typeof date2);
+  // console.log("---->", Log.diveTime);
+
+  const [date, setDate] = useState(Log.date || "");
+  const [time, setTime] = useState(Log.diveTime || "");
+  const [location, setLocation] = useState(Log.location || "");
+  const [diveLength, setDiveLengeth] = useState(Log.diveLength || "");
+  const [waterTemperature, setwaterTemperature] = useState(
+    Log.waterTemperature || ""
+  );
   const [maxDeep, setMaxDeep] = useState("");
   const [gasStart, setgasStart] = useState("");
   const [gasEnd, setGasEnd] = useState("");
@@ -29,8 +77,18 @@ function Logbook() {
       typeWater: typeWater,
     };
     try {
-      await axios.post("/dive", newDive).then(console.log("created new dive"));
-      window.location.href = "http://localhost:3000";
+      //create a new log
+      if (!id) {
+        await axios
+          .post("/dive", newDive)
+          .then(console.log("created new dive log"));
+        window.location.href = "http://localhost:3000";
+      }
+      //update exsit log
+      else {
+        await axios.put("/dive/" + id, newDive).then(console.log("update log"));
+        window.location.href = "http://localhost:3000";
+      }
     } catch (error) {
       console.log(error);
     }
@@ -59,12 +117,17 @@ function Logbook() {
               <input
                 required
                 type="date"
+                defaultValue={Log.date || ""}
+                // value={Log.date || ""}
+
                 onChange={(e) => setDate(e.target.value)}
+                // onChange={handleInputChange}
               />
               <label>Time</label>
               <input
                 required
                 type="time"
+                defaultValue={Log.diveTime || ""}
                 placeholder="Enter time"
                 onChange={(e) => {
                   setTime(e.target.value);
@@ -74,6 +137,8 @@ function Logbook() {
               <input
                 required
                 type="text"
+                // value={Log.location || ""}
+                defaultValue={Log.location}
                 placeholder="Enter location"
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -82,6 +147,8 @@ function Logbook() {
               <input
                 required
                 type="text"
+                // value={Log.diveLength || ""}
+                defaultValue={Log.diveLength || ""}
                 placeholder="Enter dive length"
                 onChange={(e) => setDiveLengeth(e.target.value)}
               />
@@ -90,6 +157,8 @@ function Logbook() {
               <input
                 required
                 type="text"
+                // value={Log.waterTemperature || ""}
+                defaultValue={Log.temperature || ""}
                 placeholder="Enter water temperature"
                 onChange={(e) => setwaterTemperature(e.target.value)}
               />
@@ -98,6 +167,7 @@ function Logbook() {
               <input
                 required
                 type="text"
+                defaultValue={Log.maxDepth || ""}
                 placeholder="Enter max deep"
                 onChange={(e) => setMaxDeep(e.target.value)}
               />
@@ -106,6 +176,7 @@ function Logbook() {
               <input
                 required
                 type="text"
+                defaultValue={Log.gasStart || ""}
                 placeholder="Enter amount of gas"
                 onChange={(e) => setgasStart(e.target.value)}
               />
@@ -114,6 +185,7 @@ function Logbook() {
               <input
                 required
                 type="text"
+                defaultValue={Log.gasEnd || ""}
                 placeholder="Enter amount of gas"
                 onChange={(e) => setGasEnd(e.target.value)}
               />
@@ -121,6 +193,7 @@ function Logbook() {
               <label>Water type</label>
               <select
                 name="waterType"
+                defaultValue={Log.typeWater || ""}
                 onChange={(e) => setTypeWater(e.target.value)}
               >
                 <option value="fresh">Fresh</option>
@@ -129,7 +202,12 @@ function Logbook() {
                 <option value="current">Current</option>
               </select>
 
-              <button class="submitBtn">Submit &rarr;</button>
+              {/* <button className="submitBtn">Submit &rarr;</button> */}
+              <input
+                className="submitBtn"
+                type="submit"
+                value={id ? "Update" : "Submit"}
+              ></input>
             </form>
           </div>
         </Col>

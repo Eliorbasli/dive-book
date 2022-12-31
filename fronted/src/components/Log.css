@@ -1,13 +1,15 @@
 .card1 {
   position: relative;
   /* background-color: rgb(130, 200, 248); */
-  background-image: linear-gradient(rgb(209, 207, 207), rgb(228, 228, 228));
-  width: 95%;
-  min-height: 20%;
+  background-image: linear-gradient(rgb(227, 244, 250), rgb(228, 228, 228));
+  width: 180px;
+  /* min-height: 20%; */
+  height: 260px;
 
   color: rgb(0, 0, 0);
-  padding: 15px;
+  /* padding: 15px; */
   margin: 15px;
+
   border-radius: 15px;
   box-shadow: 10px 10px 15px lightblue;
 }
@@ -21,16 +23,6 @@
   font-weight: 500;
 }
 
-.location {
-  margin-left: 10px;
-  font-style: normal;
-  font-weight: bold;
-  /* font: 25px Arial; */
-  color: rgb(0, 0, 0);
-  font-size: 180%;
-  font-weight: 500;
-}
-
 .temperature {
   color: rgb(0, 0, 0);
 }
@@ -38,4 +30,51 @@
 .label {
   font-size: 120%;
   font-weight: 500;
+}
+.box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.box-up {
+  justify-content: space-between;
+  /* margin: 10px; */
+  /* background-color: rgb(7, 156, 231); */
+  background-color: rgb(7, 136, 211);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  color: white;
+}
+.box-bottom {
+  /* background-color: aqua; */
+  /* flex-wrap: wrap; */
+  /* display: flex;
+  flex-direction: row;
+  padding: 5px; */
+
+  justify-content: center;
+}
+
+.box-up .location {
+  /* margin-left: 10px; */
+  font-style: normal;
+  font-weight: bold;
+  /* font: 25px Arial; */
+  /* color: rgb(0, 0, 0); */
+  font-size: 180%;
+  /* font-weight: 500; */
+  /* background-color: aquamarine; */
+  width: 68%;
+}
+
+.box-up .date {
+  /* background-color: rgb(55, 82, 189); */
+  width: 28%;
+  color: white;
+}
+
+.btn {
+  margin: 5px;
 }

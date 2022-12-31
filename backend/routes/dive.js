@@ -28,10 +28,40 @@ router.post("/getById", async (req, res) => {
   }
 });
 
+//get all DiveLog
+router.get("/allLogs", async (req, res) => {
+  try {
+    const logs = await Dive.find();
+    // console.log(logs);
+    res.status(200).json(logs);
+  } catch (error) {
+    res.status(500);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const log = await Dive.findOne({ _id: req.params.id });
+    res.status(200).json(log);
+  } catch (err) {
+    res.status(500);
+  }
+});
+
 // router.get("/edit/:id", async (req, res) => {
 //   const dive = await Dive.findById(req.params.dive_id);
 //   res.render("dive/edit", { dive: dive });
 // });
+
+router.put("/:id", async (req, res) => {
+  try {
+    const log = await Dive.findOneAndUpdate({ _id: req.params.id }, req.body);
+    res.status(200).json(log);
+  } catch (err) {
+    res.status(500);
+  }
+});
 
 router.delete("/:id", async (req, res) => {
   console.log("in delete function");

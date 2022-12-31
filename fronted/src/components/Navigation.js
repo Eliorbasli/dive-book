@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
 import { Nav, Navbar, Container, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
-import {} from "../";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assests/logo2.png";
 
@@ -37,7 +34,7 @@ function Navigations() {
             {!user && (
               <>
                 <LinkContainer to={"/login"}>
-                  <Nav.Link>Login</Nav.Link>
+                  <Nav.Link className="login">Login</Nav.Link>
                 </LinkContainer>
               </>
             )}
@@ -46,6 +43,9 @@ function Navigations() {
             </LinkContainer>
             <LinkContainer to={"/history"}>
               <Nav.Link>My Dives</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to={"/rdp"}>
+              <Nav.Link>Rdp</Nav.Link>
             </LinkContainer>
             {user && (
               <NavDropdown
@@ -72,8 +72,12 @@ function Navigations() {
                 id="basic-nav-dropdown"
               >
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Settings</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  My Certification cards
+                </NavDropdown.Item>
+                <NavDropdown.Item href="settings">Settings</NavDropdown.Item>
+                {/* <NavDropdown.Item href="/rdp">Rdp</NavDropdown.Item> */}
+                <NavDropdown.Item href="/action/3.4"></NavDropdown.Item>
 
                 <NavDropdown.Item>
                   <Button variant="danger" onClick={handleLogout}>
