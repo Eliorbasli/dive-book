@@ -5,7 +5,7 @@ import "./Rdp.css";
 function Rdp() {
   return (
     <Container>
-      <img className="rdp"></img>
+      <img className="rdp" alt=""></img>
     </Container>
   );
 }

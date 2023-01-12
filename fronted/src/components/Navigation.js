@@ -2,9 +2,10 @@ import { Nav, Navbar, Container, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assests/logo2.png";
+import React from "react";
 
 function Navigations() {
-  const user = localStorage.getItem("authenticated") == "false" ? false : true;
+  const user = localStorage.getItem("authenticated") === "false" ? false : true;
 
   function handleLogout(e) {
     e.preventDefault();

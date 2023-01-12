@@ -3,6 +3,7 @@ import "./history.css";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 import Log from "./../components/Log";
+import React from "react";
 
 function History() {
   const [Logs, setLogs] = useState([]);
