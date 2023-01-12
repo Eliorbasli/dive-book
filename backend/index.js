@@ -12,8 +12,8 @@ app.use(express.json());
 
 mongoose.connect(
   // "mongodb://localhost:27017/test1Dive",
-  "mongodb://host.docker.internal:27017/test1Dive",
-  // `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.5pgktbm.mongodb.net/DiveLog?retryWrites=true&w=majority`,
+  // "mongodb://host.docker.internal:27017/test1Dive",
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.5pgktbm.mongodb.net/DiveLog?retryWrites=true&w=majority`,
   () => {
     useNewParser: true;
     console.log("MongoDb Connected!");

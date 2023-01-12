@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, button, Button, Toast } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./Log.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Log(props) {
   async function handleDelete(e) {
     e.preventDefault();
-    console.log(props.dive._id);
+
     const dive_id = props.dive._id;
     console.log("clicked deleted");
     if (window.confirm("Are you sure that you want to delete this log? ")) {
@@ -58,6 +58,8 @@ function Log(props) {
         <Col>
           <div className="temperature label">
             Temperature: {props.dive.temperature}
+            {/* {props.dive._id} */}
+            {console.log(props.dive)}
           </div>
         </Col>
         <Col>

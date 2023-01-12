@@ -79,9 +79,11 @@ function Logbook() {
     try {
       //create a new log
       if (!id) {
+        console.log("1");
         await axios
           .post("/dive", newDive)
           .then(console.log("created new dive log"));
+        console.log("2");
         window.location.href = "http://localhost:3000";
       }
       //update exsit log
