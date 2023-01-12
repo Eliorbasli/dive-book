@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "dive-book",
   "version": "1.0.0",
@@ -19,3 +20,26 @@
   },
   "homepage": ""
 }
+=======
+{
+  "name": "dive-book",
+  "version": "1.0.0",
+  "description": "# Lessons",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../fronted && npm install && npm run build",
+    "start": "node backend/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eliorbasli/dive-book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
+>>>>>>> b30c311ca4596d0fdc72a58af2710900f642d661
