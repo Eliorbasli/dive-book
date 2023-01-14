@@ -4,7 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useParams } from "react-router";
 
-
 function Logbook() {
   const { id } = useParams();
 
@@ -21,14 +20,14 @@ function Logbook() {
   //   }
   // };
   useEffect(() => {
-    async function getLog (){
+    async function getLog() {
       try {
-        const res = await axios.get("/dive/" + id);
+        const res = await axios.get("/dive/");
         setLog(res.data);
       } catch (err) {
         console.log(err);
       }
-    };
+    }
 
     getLog();
   }, []);
