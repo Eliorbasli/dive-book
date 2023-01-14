@@ -41,7 +41,7 @@ router.post("/register", async (req, res) => {
     res.status(200).json(user._id);
   } catch (error) {
     console.log("from error..");
-    // console.log(error.code);
+    console.log(error);
     if (error.code == 11000) {
       msg = "User alredy exists";
     } else {

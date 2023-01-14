@@ -4,17 +4,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { useParams } from "react-router";
 
-// const initialState = {
-//   date: "",
-//   time: "",
-//   location: "",
-//   diveLength: "",
-//   waterTemperature: "",
-//   maxDeep: "",
-//   gasStart: "",
-//   gasEnd: "",
-//   typeWater: "",
-// };
 
 function Logbook() {
   const { id } = useParams();
@@ -23,32 +12,26 @@ function Logbook() {
 
   const [Log, setLog] = useState([]);
 
-  const getLog = async () => {
-    try {
-      const res = await axios.get("/dive/" + id);
-      // console.log(res.data);
-      setLog(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const getLog = async () => {
+  //   try {
+  //     const res = await axios.get("/dive/" + id);
+  //     setLog(res.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   useEffect(() => {
+    async function getLog (){
+      try {
+        const res = await axios.get("/dive/" + id);
+        setLog(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     getLog();
   }, []);
-
-  // const options = {
-  //   // weekday: "long",
-  //   year: "numeric",
-  //   month: "numeric",
-  //   day: "numeric",
-  // };
-  // var date1 = new Date(Log.date);
-  // var date2 = new Date("11-4-2022");
-  // console.log(date1);
-  // const date3 = date2.toLocaleDateString("en-us", options);
-  // console.log(date3);
-  // console.log(typeof date2);
-  // console.log("---->", Log.diveTime);
 
   const [date, setDate] = useState(Log.date || "");
   const [time, setTime] = useState(Log.diveTime || "");

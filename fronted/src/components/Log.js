@@ -64,7 +64,7 @@ function Log(props) {
         </Col>
         <Col>
           <div className="water label ">
-            Water Type : {props.dive.waterType}
+            Water Type : {props.dive.typeWater}
           </div>
         </Col>
       </Row>

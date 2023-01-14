@@ -33,6 +33,9 @@ const DiveSchema = new mongoose.Schema(
     maxDepth: {
       type: Number,
     },
+    typeWater : {
+      type: String,
+    }
   },
   { timestamps: true }
 );
