@@ -1,11 +1,10 @@
-
 {
   "name": "dive-book",
   "version": "1.0.0",
   "description": "# Lessons",
   "main": "index.js",
   "scripts": {
-    "build": "cd backend && npm install  && cd ../fronted && npm install && npm run build",
+    "build": "cd backend && npm install  && cd ../fronted && npm install && npm run build && npm audit fix && npm run build",
     "start": "node backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
