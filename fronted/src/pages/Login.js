@@ -19,7 +19,7 @@ function Login() {
     };
     try {
       const res = await axios
-        .post("https://dive-logbook-api.onrender.com/api/user/login", loginUser)
+        .post("/user/login", loginUser)
         .then(console.log("login worked"));
       console.log(res);
       if (res.status === 200) {
