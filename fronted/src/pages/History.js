@@ -13,7 +13,10 @@ function History() {
   const getLogs = async () => {
     try {
       console.log(username);
-      const res = await axios.post("/dive/getById", { username });
+      const res = await axios.post(
+        "https://dive-logbook-api.onrender.com/api/dive/getById",
+        { username }
+      );
       console.log(res.data);
 
       setLogs(res.data);

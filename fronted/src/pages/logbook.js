@@ -22,7 +22,9 @@ function Logbook() {
   useEffect(() => {
     async function getLog() {
       try {
-        const res = await axios.get("/dive/");
+        const res = await axios.get(
+          "https://dive-logbook-api.onrender.com/api/dive/"
+        );
         setLog(res.data);
       } catch (err) {
         console.log(err);

@@ -67,7 +67,12 @@ function Signup() {
     };
     try {
       console.log("axios start");
-      await axios.post("/user/register", newUser).then(console.log("worked"));
+      await axios
+        .post(
+          "https://dive-logbook-api.onrender.com/api/user/register",
+          newUser
+        )
+        .then(console.log("worked"));
       //setSuccess(true);
       navigate("/login");
     } catch (error) {
